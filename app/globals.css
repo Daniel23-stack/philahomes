@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1e3a5f;
+  --color-accent: #e85d04;
+  --color-highlight: #ffc107;
+  --color-muted: #6b7280;
+  --font-geist-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  @apply bg-white text-slate-800 antialiased;
+  font-size: 1.0625rem; /* 17px – comfortable reading */
+  line-height: 1.65;
+}
+
+/* Readable content: limit line length and spacing for long text */
+.readable {
+  max-width: 42rem; /* ~65ch */
+  line-height: 1.7;
+}
+
+.readable-wide {
+  max-width: 48rem; /* ~75ch */
+  line-height: 1.7;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-[var(--color-accent)] px-6 py-3 font-medium text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border-2 border-[var(--color-primary)] bg-transparent px-6 py-3 font-medium text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2;
+  }
+  .section-heading {
+    @apply text-2xl font-bold text-[var(--color-primary)] md:text-3xl;
+  }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-600 { animation-delay: 600ms; }
+}

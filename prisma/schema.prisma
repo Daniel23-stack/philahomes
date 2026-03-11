@@ -1,0 +1,184 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String?
+  name         String?
+  role         String    @default("client") // client | admin
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  serviceRequests ServiceRequest[]
+  conversations  Conversation[]
+  invoices       Invoice[]
+  activityLogs   ActivityLog[]
+}
+
+model ServiceRequest {
+  id             String   @id @default(cuid())
+  userId         String?
+  user           User?    @relation(fields: [userId], references: [id])
+  serviceCategory String
+  subService     String?
+  description    String
+  contactName    String
+  contactEmail   String
+  contactPhone   String?
+  status         String   @default("pending") // pending | quoted | accepted | in_progress | completed
+  imageUrls      String?  // JSON array of URLs
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  quotes         Quote[]
+  jobs           Job[]
+}
+
+model Quote {
+  id         String   @id @default(cuid())
+  requestId  String
+  request    ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  amount     Float?
+  notes      String?
+  status     String   @default("draft") // draft | sent | accepted | declined
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  jobs       Job[]
+  invoices   Invoice[]
+}
+
+model Job {
+  id            String   @id @default(cuid())
+  quoteId       String
+  quote         Quote    @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+  requestId     String
+  request       ServiceRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  status        String   @default("scheduled") // scheduled | in_progress | completed
+  scheduledDate DateTime?
+  completedAt   DateTime?
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  invoices      Invoice[]
+}
+
+model Testimonial {
+  id              String   @id @default(cuid())
+  authorName      String
+  roleOrLocation  String?
+  quote           String
+  rating          Int      // 1-5
+  isVisible       Boolean  @default(true)
+  order           Int      @default(0)
+  createdAt       DateTime @default(now())
+}
+
+model CatalogItem {
+  id              String   @id @default(cuid())
+  serviceCategory String
+  name            String
+  description     String?
+  basePrice       Float?
+  isRetired       Boolean  @default(false)
+  order           Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  addOns          AddOn[]
+}
+
+model AddOn {
+  id           String      @id @default(cuid())
+  catalogItemId String
+  catalogItem  CatalogItem @relation(fields: [catalogItemId], references: [id], onDelete: Cascade)
+  name         String
+  price        Float
+  createdAt    DateTime    @default(now())
+}
+
+model PortfolioItem {
+  id              String   @id @default(cuid())
+  title           String
+  description     String?
+  serviceCategory String
+  imageUrls       String   // JSON array
+  order           Int      @default(0)
+  isVisible       Boolean  @default(true)
+  createdAt       DateTime @default(now())
+}
+
+model Conversation {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  requestId  String?
+  quoteId    String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  messages   Message[]
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderRole     String       // client | admin
+  body           String
+  createdAt      DateTime     @default(now())
+}
+
+model Invoice {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quoteId   String?
+  quote     Quote?   @relation(fields: [quoteId], references: [id], onDelete: SetNull)
+  jobId     String?
+  job       Job?     @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  amount    Float
+  status    String   @default("draft") // draft | sent | paid | overdue
+  dueDate   DateTime?
+  paidAt    DateTime?
+  pdfUrl    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  payments  Payment[]
+}
+
+model Payment {
+  id         String   @id @default(cuid())
+  invoiceId  String
+  invoice    Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  amount     Float
+  method     String   // card | eft | paypal | mobile_money
+  externalId String?
+  status     String
+  createdAt  DateTime @default(now())
+}
+
+model ActivityLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action     String
+  entityType String?
+  entityId   String?
+  metadata   String?  // JSON
+  createdAt  DateTime @default(now())
+}
+
+model Post {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String?
+  body        String
+  publishedAt DateTime?
+  category    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
