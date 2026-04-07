@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { PasswordInput } from '@/components/forms/PasswordInput';
 
 export default function RegisterPage() {
   const [name, setName] = useState('');
@@ -75,14 +76,13 @@ export default function RegisterPage() {
           <label htmlFor="password" className="block text-sm font-medium text-gray-700">
             Password
           </label>
-          <input
+          <PasswordInput
             id="password"
-            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             minLength={8}
-            className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)]"
+            autoComplete="new-password"
           />
         </div>
         {error && <p className="text-sm text-red-600">{error}</p>}

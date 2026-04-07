@@ -3,11 +3,12 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import { Search, Bell, User, Settings, LogOut, Home, ChevronDown } from 'lucide-react';
+import { Search, Bell, User, Settings, LogOut, Home, ChevronDown, Menu } from 'lucide-react';
+import { useAdminMobileNav } from '@/components/admin/AdminMobileNavContext';
 
 export function AdminNavbar() {
   const { data: session } = useSession();
-  const [searchOpen, setSearchOpen] = useState(false);
+  const { toggleMobile } = useAdminMobileNav();
   const [notifOpen, setNotifOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -25,9 +26,17 @@ export function AdminNavbar() {
   const name = session?.user?.name || session?.user?.email?.split('@')[0] || 'Admin';
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-4 border-b border-slate-200 bg-white px-6 shadow-sm">
-      <div className="flex flex-1 items-center gap-4">
-        <div className="relative flex-1 max-w-md">
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-4 border-b border-slate-200 bg-white px-4 shadow-sm sm:px-6">
+      <div className="flex flex-1 items-center gap-3 sm:gap-4">
+        <button
+          type="button"
+          onClick={toggleMobile}
+          className="rounded-lg p-2 text-slate-600 hover:bg-slate-100 lg:hidden"
+          aria-label="Open menu"
+        >
+          <Menu className="h-6 w-6" />
+        </button>
+        <div className="relative max-w-md flex-1">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
           <input
             type="search"
@@ -65,11 +74,11 @@ export function AdminNavbar() {
                 <div className="px-4 py-6 text-center text-sm text-slate-500">No new notifications</div>
               </div>
               <Link
-                href="#"
+                href="/admin/logs"
                 className="block border-t border-slate-100 px-4 py-2.5 text-center text-sm font-medium text-slate-600 hover:bg-slate-50"
                 onClick={() => setNotifOpen(false)}
               >
-                View all
+                Activity log
               </Link>
             </div>
           )}

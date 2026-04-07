@@ -6,7 +6,7 @@ const statCards = [
   { key: 'requests', label: 'Service requests', sublabel: 'Total requests', icon: FileText, href: '/admin/requests', color: 'bg-blue-500' },
   { key: 'quotes', label: 'Quotes', sublabel: 'Sent & pending', icon: MessageSquare, href: '/admin/quotes', color: 'bg-emerald-500' },
   { key: 'jobs', label: 'Jobs', sublabel: 'Active & completed', icon: Briefcase, href: '/admin/jobs', color: 'bg-amber-500' },
-  { key: 'users', label: 'Users', sublabel: 'Registered clients', icon: Users, href: '#', color: 'bg-violet-500' },
+  { key: 'users', label: 'Users', sublabel: 'Registered clients', icon: Users, href: '/admin/users', color: 'bg-violet-500' },
 ];
 
 export default async function AdminPage() {

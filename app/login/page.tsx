@@ -4,6 +4,7 @@ import { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
+import { PasswordInput } from '@/components/forms/PasswordInput';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -47,13 +48,12 @@ function LoginForm() {
           <label htmlFor="password" className="block text-sm font-medium text-gray-700">
             Password
           </label>
-          <input
+          <PasswordInput
             id="password"
-            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm focus:border-[var(--color-primary)] focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)]"
+            autoComplete="current-password"
           />
         </div>
         {error && <p className="text-sm text-red-600">{error}</p>}
