@@ -7,7 +7,8 @@ import { Wrench, Zap, Home, Palette, Box, Hammer, Flame, Sun } from 'lucide-reac
 
 const serviceImages: Record<string, string> = {
   plumbing: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=1200&q=80',
-  electrical: 'https://images.unsplash.com/photo-1621905252507-854286f609c2?w=1200&q=80',
+  electrical:
+    'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1200&q=80&auto=format&fit=crop',
   renovations: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80',
   'interior-design': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80',
   bricklaying: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=1200&q=80',
@@ -59,7 +60,7 @@ export default async function ServicePage({ params }: Props) {
           src={imageUrl}
           alt={service.name}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           sizes="(max-width: 768px) 100vw, 896px"
           priority
         />

@@ -12,7 +12,7 @@ export function PortfolioGallery() {
   const [filter, setFilter] = useState<string>(ALL);
 
   const categories = useMemo(() => {
-    const slugs = [...new Set(PORTFOLIO_ITEMS.map((p) => p.category))];
+    const slugs = Array.from(new Set(PORTFOLIO_ITEMS.map((p) => p.category)));
     return slugs.map((slug) => ({
       slug,
       name: SERVICES.find((s) => s.slug === slug)?.name ?? slug,

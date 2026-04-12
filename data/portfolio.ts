@@ -8,7 +8,13 @@ export interface PortfolioItem {
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   { id: '1', title: 'Kitchen plumbing upgrade', category: 'plumbing', description: 'Full repipe and new fixtures.', image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800&q=80' },
-  { id: '2', title: 'Home electrical panel', category: 'electrical', description: 'New DB board and circuits.', image: 'https://images.unsplash.com/photo-1621905252507-854286f609c2?w=800&q=80' },
+  {
+    id: '2',
+    title: 'Home electrical panel',
+    category: 'electrical',
+    description: 'New DB board and circuits.',
+    image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80&auto=format&fit=crop',
+  },
   { id: '3', title: 'Bathroom renovation', category: 'renovations', description: 'Tile, plumbing, and lighting.', image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80' },
   { id: '4', title: 'Solar PV installation', category: 'solar', description: '6kW system with battery backup.', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80' },
   { id: '5', title: 'Exterior painting', category: 'general-maintenance', description: 'House exterior and gates.', image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=80' },
