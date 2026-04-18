@@ -190,7 +190,7 @@ export default async function AdminInvoicesPage() {
                         {inv.dueDate ? new Date(inv.dueDate).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' }) : '—'}
                       </td>
                       <td className="whitespace-nowrap px-6 py-4 text-right">
-                        <Link href={`#view-${inv.id}`} className="text-sm font-medium text-blue-600 hover:text-blue-500">
+                        <Link href={`/admin/invoices/${inv.id}`} className="text-sm font-medium text-blue-600 hover:text-blue-500">
                           View
                         </Link>
                       </td>

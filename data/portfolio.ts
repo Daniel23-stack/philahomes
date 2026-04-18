@@ -13,7 +13,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     title: 'Home electrical panel',
     category: 'electrical',
     description: 'New DB board and circuits.',
-    image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1576446470246-499c738d1c8e?auto=format&fit=crop&w=1200&q=80',
   },
   { id: '3', title: 'Bathroom renovation', category: 'renovations', description: 'Tile, plumbing, and lighting.', image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80' },
   { id: '4', title: 'Solar PV installation', category: 'solar', description: '6kW system with battery backup.', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80' },

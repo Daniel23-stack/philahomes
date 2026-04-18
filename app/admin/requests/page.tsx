@@ -92,7 +92,7 @@ export default async function AdminRequestsPage() {
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 text-right">
                       <Link
-                        href={`/admin/requests?view=${r.id}`}
+                        href={`/admin/requests/${r.id}`}
                         className="text-sm font-medium text-orange-600 hover:text-orange-500"
                       >
                         View

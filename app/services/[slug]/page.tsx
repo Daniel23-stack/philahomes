@@ -8,7 +8,7 @@ import { Wrench, Zap, Home, Palette, Box, Hammer, Flame, Sun } from 'lucide-reac
 const serviceImages: Record<string, string> = {
   plumbing: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=1200&q=80',
   electrical:
-    'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=1200&q=80&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1576446470246-499c738d1c8e?auto=format&fit=crop&w=1600&q=80',
   renovations: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80',
   'interior-design': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80',
   bricklaying: 'https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=1200&q=80',

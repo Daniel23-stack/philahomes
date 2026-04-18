@@ -29,7 +29,11 @@ export function NewsletterSection() {
         <p className="mt-4 text-base leading-relaxed text-slate-200 opacity-0 animate-fade-in-up animate-delay-300">
           Get updates on offers, tips, and news from PhilaHomes.
         </p>
-        <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3 opacity-0 animate-fade-in-up animate-delay-400 sm:flex-row sm:justify-center">
+        {/* No opacity/enter animation on <form> — it caused hydration mismatches with the submit button */}
+        <form
+          onSubmit={handleSubmit}
+          className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center"
+        >
           <label htmlFor="newsletter-email" className="sr-only">
             Email address
           </label>

@@ -1,0 +1,19 @@
+# Optional local Postgres for development (Docker required)
+# Start: docker compose up -d
+# DATABASE_URL=postgresql://philahomes:philahomes@localhost:5432/philahomes?schema=public
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: philahomes
+      POSTGRES_PASSWORD: philahomes
+      POSTGRES_DB: philahomes
+    ports:
+      - '5432:5432'
+    volumes:
+      - philahomes_pgdata:/var/lib/postgresql/data
+
+volumes:
+  philahomes_pgdata:
