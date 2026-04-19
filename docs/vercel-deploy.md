@@ -1,5 +1,7 @@
 # Deploy PhilaHomes on Vercel
 
+**Free production stack (recommended):** **[Vercel](https://vercel.com)** (Hobby plan — free for personal projects) + **[Neon](https://neon.tech)** or **[Supabase](https://supabase.com)** (free Postgres). This app needs Postgres; SQLite cannot run reliably on Vercel.
+
 Vercel runs Next.js in serverless functions. **SQLite does not work** for production (the filesystem is ephemeral), so this project uses **PostgreSQL** via `DATABASE_URL`.
 
 ## Already imported the repo on Vercel?
@@ -38,10 +40,17 @@ Add for **Production** (and Preview if you want a staging DB):
 
 | Name | Example / notes |
 |------|------------------|
-| `DATABASE_URL` | Your Postgres URL (must include `?sslmode=require` if your host requires SSL). |
+| `DATABASE_URL` | Your Postgres URL. Use SSL (`?sslmode=require` if not already in the string). See [Neon quick steps](#neon-quick-steps) below. |
 | `NEXTAUTH_SECRET` | Random string, e.g. `openssl rand -base64 32`. |
 | `NEXTAUTH_URL` | Your production site URL, e.g. `https://your-project.vercel.app` (no trailing slash). Update this when you add a custom domain. |
 | `OPENAI_API_KEY` | Optional; only if you use the AI chat feature. |
+
+### Neon quick steps
+
+1. Create a free account at **[neon.tech](https://neon.tech)**.
+2. **Create a project** → open **Dashboard → Connection details**.
+3. Copy **`DATABASE_URL`** (use the **pooled** / **transaction** string if Neon offers two; it works better with serverless on Vercel).
+4. Add that value to Vercel → **Environment variables** as `DATABASE_URL` (Production), then **Redeploy**.
 
 **Important:** After the first deployment, set `NEXTAUTH_URL` to the **exact** URL Vercel assigns (or your custom domain). Mismatched URLs cause login/callback issues.
 
