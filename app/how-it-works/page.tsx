@@ -4,7 +4,7 @@ import { StagesGuide } from '@/components/how-it-works/StagesGuide';
 
 export const metadata: Metadata = {
   title: 'How It Works',
-  description: 'See how easy it is to request a service from PhilaHomes: request a quote, we deliver, you pay.',
+  description: 'See how easy it is to request a service from Okuhle Homes: request a quote, we deliver, you pay.',
 };
 
 export default function HowItWorksPage() {

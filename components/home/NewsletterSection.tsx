@@ -27,7 +27,7 @@ export function NewsletterSection() {
           Subscribe to our newsletter
         </h2>
         <p className="mt-4 text-base leading-relaxed text-slate-200 opacity-0 animate-fade-in-up animate-delay-300">
-          Get updates on offers, tips, and news from PhilaHomes.
+          Get updates on offers, tips, and news from Okuhle Homes.
         </p>
         {/* No opacity/enter animation on <form> — it caused hydration mismatches with the submit button */}
         <form

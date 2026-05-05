@@ -29,7 +29,7 @@ export default async function AdminPage() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-2xl font-bold text-slate-900">Welcome back!</h1>
-            <p className="mt-1 text-slate-500">Here’s what’s happening with PhilaHomes today.</p>
+            <p className="mt-1 text-slate-500">Here’s what’s happening with Okuhle Homes today.</p>
           </div>
           <div className="flex items-center gap-2 rounded-lg bg-emerald-50 px-4 py-2">
             <TrendingUp className="h-5 w-5 text-emerald-600" />

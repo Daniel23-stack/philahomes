@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { SITE } from '@/lib/site';
 
-const whatsappUrl = `https://wa.me/${SITE.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Hi PhilaHomes, I have an enquiry.')}`;
+const whatsappUrl = `https://wa.me/${SITE.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Hi Okuhle Homes, I have an enquiry.')}`;
 
 export function Footer() {
   return (
@@ -11,7 +11,7 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="text-lg font-bold tracking-tight">
-              Phila<span className="text-[var(--color-accent)]">Homes</span>
+              Okuhle <span className="text-[var(--color-accent)]">Homes</span>
             </h3>
             <p className="mt-2 text-base leading-relaxed text-slate-200">{SITE.tagline}</p>
           </div>
@@ -115,7 +115,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t border-slate-600 pt-6 text-center text-base text-slate-300">
-          © {new Date().getFullYear()} PhilaHomes. All rights reserved.
+          © {new Date().getFullYear()} Okuhle Homes. All rights reserved.
         </div>
       </div>
     </footer>

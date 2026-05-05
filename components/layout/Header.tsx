@@ -3,12 +3,15 @@
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { SERVICES } from '@/data/services';
 import type { Service } from '@/data/services';
 
 export function Header() {
   const { data: session } = useSession();
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const [mobileOpen, setMobileOpen] = useState(false);
   const role = (session?.user as { role?: string })?.role;
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -26,13 +29,32 @@ export function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const desktopNavItemClass = isHome
+    ? 'rounded-xl px-3.5 py-2.5 text-base font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900'
+    : 'rounded-xl px-3.5 py-2.5 text-base font-medium text-slate-200 transition hover:bg-slate-800 hover:text-white';
+  const desktopServicesButtonClass = isHome
+    ? 'flex items-center gap-1 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900'
+    : 'flex items-center gap-1 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-200 transition hover:bg-slate-800 hover:text-white';
+  const mobileNavItemClass = isHome
+    ? 'rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100'
+    : 'rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-white';
+  const mobileSubNavItemClass = isHome
+    ? 'rounded-xl py-2.5 pl-8 pr-3.5 text-sm text-slate-500 hover:bg-slate-100'
+    : 'rounded-xl py-2.5 pl-8 pr-3.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white';
+
   return (
     <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl rounded-2xl border border-slate-200/80 bg-white/95 shadow-lg shadow-slate-200/50 backdrop-blur-md">
+      <div
+        className={`mx-auto max-w-6xl rounded-2xl border shadow-lg backdrop-blur-md ${
+          isHome
+            ? 'border-slate-200/80 bg-white/95 shadow-slate-200/50'
+            : 'border-slate-700/80 bg-slate-900/95 shadow-slate-900/50'
+        }`}
+      >
         <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-5 lg:px-6">
           <Link href="/" className="flex shrink-0 items-center gap-2">
-            <span className="text-xl font-bold text-[var(--color-primary)] sm:text-2xl">
-              Phila<span className="text-[var(--color-accent)]">Homes</span>
+            <span className={`text-xl font-bold sm:text-2xl ${isHome ? 'text-[var(--color-primary)]' : 'text-white'}`}>
+              Okuhle <span className="text-[var(--color-accent)]">Homes</span>
             </span>
           </Link>
 
@@ -40,7 +62,7 @@ export function Header() {
           <nav className="hidden items-center gap-0.5 lg:flex">
             <Link
               href="/"
-              className="rounded-xl px-3.5 py-2.5 text-base font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+              className={desktopNavItemClass}
             >
               Home
             </Link>
@@ -48,8 +70,7 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setServicesOpen((o) => !o)}
-                className="flex items-center gap-1 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
-                aria-expanded={servicesOpen ? 'true' : 'false'}
+                className={desktopServicesButtonClass}
                 aria-haspopup="true"
               >
                 Services
@@ -111,20 +132,20 @@ export function Header() {
           </div>
             <Link
               href="/about"
-              className="rounded-xl px-3.5 py-2.5 text-base font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+              className={desktopNavItemClass}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="rounded-xl px-3.5 py-2.5 text-base font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+              className={desktopNavItemClass}
             >
               Contact
             </Link>
             {role === 'admin' && (
               <Link
                 href="/admin"
-                className="rounded-xl px-3.5 py-2.5 text-base font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+                className={desktopNavItemClass}
               >
                 Admin
               </Link>
@@ -132,7 +153,7 @@ export function Header() {
             {session && role !== 'admin' && (
               <Link
                 href="/dashboard"
-                className="rounded-xl px-3.5 py-2.5 text-base font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+                className={desktopNavItemClass}
               >
                 Dashboard
               </Link>
@@ -147,7 +168,11 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => signOut()}
-                className="rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100"
+                className={
+                  isHome
+                    ? 'rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100'
+                    : 'rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-200 transition hover:bg-slate-800 hover:text-white'
+                }
               >
                 Sign out
               </button>
@@ -157,7 +182,11 @@ export function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="rounded-xl p-2.5 text-slate-600 hover:bg-slate-100 lg:hidden"
+            className={
+              isHome
+                ? 'rounded-xl p-2.5 text-slate-600 hover:bg-slate-100 lg:hidden'
+                : 'rounded-xl p-2.5 text-slate-200 hover:bg-slate-800 hover:text-white lg:hidden'
+            }
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
@@ -167,18 +196,18 @@ export function Header() {
 
         {/* Mobile nav - inside same floating card */}
         {mobileOpen && (
-          <div className="border-t border-slate-200/80 px-4 py-4 lg:hidden">
+          <div className={`px-4 py-4 lg:hidden ${isHome ? 'border-t border-slate-200/80' : 'border-t border-slate-700/80'}`}>
             <nav className="flex flex-col gap-0.5">
               <Link
                 href="/"
-                className="rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                className={mobileNavItemClass}
                 onClick={() => setMobileOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/services"
-                className="rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                className={mobileNavItemClass}
                 onClick={() => setMobileOpen(false)}
               >
                 Services
@@ -187,7 +216,7 @@ export function Header() {
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="rounded-xl py-2.5 pl-8 pr-3.5 text-sm text-slate-500 hover:bg-slate-100"
+                  className={mobileSubNavItemClass}
                   onClick={() => setMobileOpen(false)}
                 >
                   {s.name}
@@ -195,14 +224,14 @@ export function Header() {
               ))}
               <Link
                 href="/about"
-                className="rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                className={mobileNavItemClass}
                 onClick={() => setMobileOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/contact"
-                className="rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                className={mobileNavItemClass}
                 onClick={() => setMobileOpen(false)}
               >
                 Contact
@@ -218,7 +247,7 @@ export function Header() {
                 <>
                   <Link
                     href={role === 'admin' ? '/admin' : '/dashboard'}
-                    className="rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                    className={mobileNavItemClass}
                     onClick={() => setMobileOpen(false)}
                   >
                     {role === 'admin' ? 'Admin' : 'Dashboard'}
@@ -226,7 +255,11 @@ export function Header() {
                   <button
                     type="button"
                     onClick={() => { signOut(); setMobileOpen(false); }}
-                    className="rounded-xl px-3.5 py-2.5 text-left text-sm font-medium text-slate-600 hover:bg-slate-100"
+                    className={
+                      isHome
+                        ? 'rounded-xl px-3.5 py-2.5 text-left text-sm font-medium text-slate-600 hover:bg-slate-100'
+                        : 'rounded-xl px-3.5 py-2.5 text-left text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-white'
+                    }
                   >
                     Sign out
                   </button>

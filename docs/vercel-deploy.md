@@ -1,4 +1,4 @@
-# Deploy PhilaHomes on Vercel
+# Deploy Okuhle Homes on Vercel
 
 **Free production stack (recommended):** **[Vercel](https://vercel.com)** (Hobby plan — free for personal projects) + **[Neon](https://neon.tech)** or **[Supabase](https://supabase.com)** (free Postgres). This app needs Postgres; SQLite cannot run reliably on Vercel.
 

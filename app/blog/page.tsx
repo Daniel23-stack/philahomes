@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'Tips and guides from PhilaHomes — solar PV maintenance, plumbing, electrical and more.',
+  description: 'Tips and guides from Okuhle Homes — solar PV maintenance, plumbing, electrical and more.',
 };
 
 export default async function BlogPage() {

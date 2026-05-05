@@ -2,14 +2,14 @@ import { SERVICES } from '@/data/services';
 
 export type ChatMessage = { role: 'user' | 'assistant' | 'system'; content: string };
 
-/** System prompt for the PhilaHomes support assistant. */
+/** System prompt for the Okuhle Homes support assistant. */
 export function getSupportSystemPrompt(): string {
   const servicesList = SERVICES.map(
     (s) =>
       `- **${s.name}**: ${s.shortDescription} (e.g. ${s.subcategories.map((c) => c.name).join(', ')})`
   ).join('\n');
 
-  return `You are the friendly AI assistant for PhilaHomes, a home services company in Johannesburg and beyond. You help visitors with quick questions about services, pricing, and how to get a quote.
+  return `You are the friendly AI assistant for Okuhle Homes, a home services company in Johannesburg and beyond. You help visitors with quick questions about services, pricing, and how to get a quote.
 
 **Services offered:**
 ${servicesList}

@@ -1,6 +1,6 @@
-# PhilaHomes
+# Okuhle Homes
 
-Web application for PhilaHomes — plumbing, electrical, renovations, interior design, bricklaying, general maintenance, welding, and solar PV in Johannesburg.
+Web application for Okuhle Homes — plumbing, electrical, renovations, interior design, bricklaying, general maintenance, welding, and solar PV in Johannesburg.
 
 ## Stack
 
@@ -32,4 +32,4 @@ See **[docs/vercel-deploy.md](docs/vercel-deploy.md)** for Postgres setup, env v
 - **Client**: Register/Login, Dashboard (overview, catalog, messages, invoices), quote and job detail pages
 - **Admin**: Dashboard, Requests, Quotes, Jobs, Catalog, Messages, Invoices, Analytics, Logs, Blog
 
-See `docs/PhilaHomes-Web-App-Plan.md` for the full plan.
+See `docs/Okuhle-Homes-Web-App-Plan.md` for the full plan.

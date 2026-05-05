@@ -11,7 +11,7 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: 'Had our solar panels installed by PhilaHomes. Great communication and quality work.',
+    quote: 'Had our solar panels installed by Okuhle Homes. Great communication and quality work.',
     author: 'James K.',
     location: 'Pretoria',
     rating: 5,

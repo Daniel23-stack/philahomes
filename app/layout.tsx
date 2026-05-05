@@ -5,8 +5,8 @@ import { ConditionalPublicLayout } from '@/components/layout/ConditionalPublicLa
 
 export const metadata: Metadata = {
   title: {
-    default: 'PhilaHomes | Plumbing, Electrical, Renovations & Solar',
-    template: '%s | PhilaHomes',
+    default: 'Okuhle Homes | Plumbing, Electrical, Renovations & Solar',
+    template: '%s | Okuhle Homes',
   },
   description:
     'Your one-stop solution for home maintenance and renovation. Affordable plumbing, electrical, renovations, and solar PV in Johannesburg and beyond.',
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     'electrical services',
     'home renovations',
     'solar PV installation',
-    'PhilaHomes',
+    'Okuhle Homes',
   ],
   openGraph: {
-    title: 'PhilaHomes | Plumbing, Electrical, Renovations & Solar',
+    title: 'Okuhle Homes | Plumbing, Electrical, Renovations & Solar',
     description: 'Your one-stop solution for home maintenance and renovation.',
   },
 };

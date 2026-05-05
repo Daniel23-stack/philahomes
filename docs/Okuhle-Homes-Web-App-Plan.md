@@ -1,11 +1,11 @@
 ---
-name: PhilaHomes Web App
-overview: Build a Next.js full-stack web application for PhilaHomes with marketing (home, services, about, contact, portfolio, how-it-works, blog), dynamic request form with image upload, client dashboard (catalog, pipeline, messaging, quotations, invoices, payments), admin (including analytics and activity logs), AI chatbot, SEO and mobile responsiveness, using the provided logo and brand colors.
+name: Okuhle Homes Web App
+overview: Build a Next.js full-stack web application for Okuhle Homes with marketing (home, services, about, contact, portfolio, how-it-works, blog), dynamic request form with image upload, client dashboard (catalog, pipeline, messaging, quotations, invoices, payments), admin (including analytics and activity logs), AI chatbot, SEO and mobile responsiveness, using the provided logo and brand colors.
 todos: []
 isProject: false
 ---
 
-# PhilaHomes Web Application – Implementation Plan
+# Okuhle Homes Web Application – Implementation Plan
 
 ## Goals
 
@@ -25,7 +25,7 @@ isProject: false
 
 ## Brand and Assets
 
-- **Logo**: Use the provided PhilaHomes logo in header and footer (copy from `assets/` into `public/` e.g. `public/logo.png`).
+- **Logo**: Use the provided Okuhle Homes logo in header and footer (copy from `assets/` into `public/` e.g. `public/logo.png`).
 - **Colors** (Tailwind/theme): dark blue (primary), orange (accent), yellow (highlights), grey (tagline/text), white (backgrounds).
 - **Services**: All 8 categories with short descriptions and optional sub-services (e.g. Plumbing: Leak repairs, pipe installations, maintenance).
 
@@ -64,15 +64,15 @@ isProject: false
 ## Informative Landing Pages
 
 - **About Us** (`/about`)
-  - **Mission and vision**: Clear statements of what PhilaHomes stands for and aims to achieve.
+  - **Mission and vision**: Clear statements of what Okuhle Homes stands for and aims to achieve.
   - **Team introduction**: Short intro to the team (e.g. founder, key roles) with optional photos and bios.
   - **Certifications and affiliations**: Logos and names of industry bodies, certifications, or associations (e.g. trade bodies, quality standards) to build trust.
   - Content can be static/markdown at first; optional CMS later.
 - **Contact Page** (`/contact`)
-  - **Interactive map**: Embedded map with location pin (e.g. Google Maps) for PhilaHomes address.
+  - **Interactive map**: Embedded map with location pin (e.g. Google Maps) for Okuhle Homes address.
   - **Inquiry form**: Name, Contact (email/phone), Query — submits to API (email or stored inquiries).
   - **Contact details**: Address, phone, email, WhatsApp button; business hours if desired.
-  - **Social media links**: Icons/links to PhilaHomes social profiles (e.g. Facebook, Instagram, LinkedIn) in footer and/or contact section.
+  - **Social media links**: Icons/links to Okuhle Homes social profiles (e.g. Facebook, Instagram, LinkedIn) in footer and/or contact section.
 - **Stages for Requesting Services**
   - A **step-by-step visual guide** (e.g. on a dedicated "How it works" page or within the request-quote flow) covering: **booking** (request/quote), **service delivery** (scheduling, work in progress), and **payment** (quote approval, invoice, pay).
   - Visual steps (numbered or timeline) so clients understand the journey from request to completion.
@@ -128,7 +128,7 @@ flowchart LR
 
 ### Communication System
 
-- **Messaging**: **Direct messaging** between client and PhilaHomes administrator (in-app inbox in dashboard). Thread per request or one thread per client; admin replies from admin panel.
+- **Messaging**: **Direct messaging** between client and Okuhle Homes administrator (in-app inbox in dashboard). Thread per request or one thread per client; admin replies from admin panel.
 - **Automated responses**: For **FAQs** and **service status** inquiries — e.g. bot or canned replies when user asks "What is my quote status?" or common questions. Can start with simple keyword → response rules or link to help content.
 
 ### Finance Management
@@ -155,7 +155,7 @@ flowchart LR
 ### SEO Optimization
 
 - **Location and service keywords**: Use **keywords** specific to location and services (e.g. "affordable plumbing in Johannesburg", "solar PV installation [city]"). Implement via meta tags, titles, and content on service pages and homepage (Next.js metadata API, optional `sitemap.xml` and `robots.txt`).
-- **Blog section**: **Blog** for tips and guides (e.g. "How to Maintain Your Solar PV System", "When to Call a Plumber"). Public route `/blog` and `/blog/[slug]`; content in DB (**Post**: title, slug, excerpt, body, publishedAt, category/tags) or markdown. Helps SEO and positions PhilaHomes as experts.
+- **Blog section**: **Blog** for tips and guides (e.g. "How to Maintain Your Solar PV System", "When to Call a Plumber"). Public route `/blog` and `/blog/[slug]`; content in DB (**Post**: title, slug, excerpt, body, publishedAt, category/tags) or markdown. Helps SEO and positions Okuhle Homes as experts.
 
 ### Mobile Responsiveness
 
@@ -197,7 +197,7 @@ Relations: ServiceRequest → Quote (one-to-one or one-to-many), Quote → Job (
 | `/register`                  | Client registration only                                                                                                             |
 | `/dashboard`                 | Services overview (active/completed/pending), service pipeline (status), catalog, retired services, messages, quotes, invoices       |
 | `/dashboard/catalog`         | Interactive catalog: service descriptions, prices, add-ons                                                                             |
-| `/dashboard/messages`       | Direct messaging with PhilaHomes admin; automated FAQ/status responses                                                               |
+| `/dashboard/messages`       | Direct messaging with Okuhle Homes admin; automated FAQ/status responses                                                               |
 | `/dashboard/quotes/[id]`     | View quote; approve/reject                                                                                                           |
 | `/dashboard/invoices`       | List invoices (paid/unpaid); download PDF; payment due/overdue notifications                                                        |
 | `/dashboard/jobs/[id]`       | View job status and details                                                                                                          |
@@ -245,7 +245,7 @@ Relations: ServiceRequest → Quote (one-to-one or one-to-many), Quote → Job (
 - Footer: add social media links component
 - `lib/prisma.ts`, `lib/auth.ts`, `prisma/schema.prisma`
 - Invoice PDF: e.g. `lib/pdf/invoice.ts` or use react-pdf / server-side PDF lib
-- `public/logo.png` (PhilaHomes logo)
+- `public/logo.png` (Okuhle Homes logo)
 
 ## Phasing Suggestion
 
@@ -263,4 +263,4 @@ Relations: ServiceRequest → Quote (one-to-one or one-to-many), Quote → Job (
 
 ---
 
-This plan gives you a single codebase (Next.js), one database (Prisma), and clear separation between public site, client area, and admin, aligned with the PhilaHomes logo and the eight service categories.
+This plan gives you a single codebase (Next.js), one database (Prisma), and clear separation between public site, client area, and admin, aligned with the Okuhle Homes logo and the eight service categories.

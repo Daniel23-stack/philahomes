@@ -39,9 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getServiceBySlug(slug);
   if (!service) return { title: 'Service' };
   return {
-    title: `${service.name} | PhilaHomes`,
+    title: `${service.name} | Okuhle Homes`,
     description: `${service.shortDescription} Affordable ${service.name.toLowerCase()} in Johannesburg.`,
-    keywords: [`${service.name} Johannesburg`, 'PhilaHomes', service.slug],
+    keywords: [`${service.name} Johannesburg`, 'Okuhle Homes', service.slug],
   };
 }
 

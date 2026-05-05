@@ -6,7 +6,7 @@ import { Target, Eye, Users, Award, ArrowRight, CheckCircle2 } from 'lucide-reac
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about PhilaHomes — our mission, vision, team, and certifications. Your trusted partner for plumbing, electrical, renovations and solar in Johannesburg.',
+    'Learn about Okuhle Homes — our mission, vision, team, and certifications. Your trusted partner for plumbing, electrical, renovations and solar in Johannesburg.',
 };
 
 const ABOUT_IMAGE = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80';
@@ -39,7 +39,7 @@ export default function AboutPage() {
             About us
           </p>
           <h1 id="about-heading" className="mt-2 max-w-3xl text-3xl font-light text-white sm:text-4xl lg:text-5xl">
-            About PhilaHomes
+            About Okuhle Homes
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
             Your one-stop solution for home maintenance and renovation across Johannesburg and beyond. We bring together certified tradespeople and a single point of contact for your home.
@@ -108,7 +108,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100">
               <Image
                 src={TEAM_IMAGE}
-                alt="PhilaHomes team collaboration"
+                alt="Okuhle Homes team collaboration"
                 fill
                 className="object-cover transition duration-500 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"

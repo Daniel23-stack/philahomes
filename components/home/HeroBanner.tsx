@@ -27,7 +27,7 @@ export function HeroBanner() {
           <span className="font-semibold text-[var(--color-accent)]">a reality.</span>
         </h1>
         <p className="mt-6 max-w-xl opacity-0 animate-fade-in-up text-lg leading-relaxed text-slate-200 animate-delay-400">
-          From plumbing and electrical to renovations and solar — one trusted team for your home.
+          Complete home solutions, delivered with precision.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-6 opacity-0 animate-fade-in-up animate-delay-500">
           <Link

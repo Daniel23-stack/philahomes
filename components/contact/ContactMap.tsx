@@ -6,7 +6,7 @@ export function ContactMap() {
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-100">
       <iframe
-        title="PhilaHomes location"
+        title="Okuhle Homes location"
         src={embedUrl}
         width="100%"
         height="300"

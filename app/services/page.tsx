@@ -6,8 +6,8 @@ import { Wrench, Zap, Home, Palette, Box, Hammer, Flame, Sun } from 'lucide-reac
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'PhilaHomes offers plumbing, electrical, renovations, interior design, bricklaying, general maintenance, welding and solar PV in Johannesburg.',
-  keywords: ['plumbing Johannesburg', 'electrical services', 'renovations', 'solar PV', 'PhilaHomes'],
+    'Okuhle Homes offers plumbing, electrical, renovations, interior design, bricklaying, general maintenance, welding and solar PV in Johannesburg.',
+  keywords: ['plumbing Johannesburg', 'electrical services', 'renovations', 'solar PV', 'Okuhle Homes'],
 };
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {

@@ -59,7 +59,7 @@ export function AdminSidebar() {
       >
       <div className="flex h-16 items-center gap-2 border-b border-slate-700/50 px-6">
         <span className="text-lg font-bold text-white">
-          Phila<span className="text-orange-400">Homes</span>
+          Okuhle <span className="text-orange-400">Homes</span>
         </span>
         <span className="rounded bg-slate-700 px-2 py-0.5 text-xs font-medium text-slate-300">
           Admin

@@ -6,7 +6,7 @@ import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 type Message = { role: 'user' | 'assistant'; content: string };
 
 const WELCOME =
-  "Hi! I'm the PhilaHomes assistant. Ask me about our services (plumbing, electrical, renovations, solar, and more), how to get a quote, or anything else.";
+  "Hi! I'm the Okuhle Homes assistant. Ask me about our services (plumbing, electrical, renovations, solar, and more), how to get a quote, or anything else.";
 
 export function SupportChatbot() {
   const [open, setOpen] = useState(false);
@@ -92,7 +92,7 @@ export function SupportChatbot() {
         <div className="fixed bottom-24 right-6 z-40 flex h-[min(28rem,80vh)] w-full max-w-md flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl">
           <div className="flex items-center gap-2 border-b border-slate-200 bg-[var(--color-primary)] px-4 py-3 text-white">
             <MessageCircle className="h-5 w-5 shrink-0" />
-            <span className="font-semibold">PhilaHomes Support</span>
+            <span className="font-semibold">Okuhle Homes Support</span>
           </div>
 
           <div

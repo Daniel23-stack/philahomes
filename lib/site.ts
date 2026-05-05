@@ -1,5 +1,5 @@
 export const SITE = {
-  name: 'PhilaHomes',
+  name: 'Okuhle Homes',
   tagline: 'Plumbing, Electrical, Renovations & Solar',
   phone: '+27 67 710 3452',
   email: 'info@philahomes.co.za',

@@ -3,7 +3,7 @@ import { PortfolioGallery } from '@/components/portfolio/PortfolioGallery';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
-  description: 'Browse completed projects by PhilaHomes — plumbing, electrical, renovations, solar and more.',
+  description: 'Browse completed projects by Okuhle Homes — plumbing, electrical, renovations, solar and more.',
 };
 
 export default function PortfolioPage() {

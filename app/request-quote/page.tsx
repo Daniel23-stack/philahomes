@@ -3,7 +3,7 @@ import { QuoteRequestForm } from '@/components/forms/QuoteRequestForm';
 
 export const metadata: Metadata = {
   title: 'Request a Quote',
-  description: 'Request a quote for plumbing, electrical, renovations, solar and more. PhilaHomes, Johannesburg.',
+  description: 'Request a quote for plumbing, electrical, renovations, solar and more. Okuhle Homes, Johannesburg.',
 };
 
 export default function RequestQuotePage() {

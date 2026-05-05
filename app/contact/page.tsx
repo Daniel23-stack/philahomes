@@ -7,10 +7,10 @@ import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with PhilaHomes for plumbing, electrical, renovations and solar. Johannesburg.',
+  description: 'Get in touch with Okuhle Homes for plumbing, electrical, renovations and solar. Johannesburg.',
 };
 
-const whatsappUrl = `https://wa.me/${SITE.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Hi PhilaHomes, I have an enquiry.')}`;
+const whatsappUrl = `https://wa.me/${SITE.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Hi Okuhle Homes, I have an enquiry.')}`;
 
 export default function ContactPage() {
   return (
