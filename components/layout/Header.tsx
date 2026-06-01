@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { SERVICES } from '@/data/services';
 import type { Service } from '@/data/services';
+import { SiteLogo } from '@/components/brand/SiteLogo';
 
 export function Header() {
   const { data: session } = useSession();
@@ -43,19 +44,30 @@ export function Header() {
     : 'rounded-xl py-2.5 pl-8 pr-3.5 text-sm text-slate-300 hover:bg-slate-800 hover:text-white';
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+    <header className="fixed left-0 right-0 top-0 z-50 w-full">
       <div
-        className={`mx-auto max-w-6xl rounded-2xl border shadow-lg backdrop-blur-md ${
+        className={`w-full border-b shadow-lg backdrop-blur-md ${
           isHome
-            ? 'border-slate-200/80 bg-white/95 shadow-slate-200/50'
-            : 'border-slate-700/80 bg-slate-900/95 shadow-slate-900/50'
+            ? 'border-slate-200/90 bg-white/95 shadow-slate-200/40'
+            : 'border-slate-700/90 bg-slate-900/95 shadow-slate-900/40'
         }`}
       >
-        <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-5 lg:px-6">
-          <Link href="/" className="flex shrink-0 items-center gap-2">
-            <span className={`text-xl font-bold sm:text-2xl ${isHome ? 'text-[var(--color-primary)]' : 'text-white'}`}>
-              Okuhle <span className="text-[var(--color-accent)]">Homes</span>
-            </span>
+        <div className="flex h-24 min-h-24 max-h-24 w-full shrink-0 items-center justify-between gap-4 px-4 sm:px-6 lg:px-10 xl:px-12">
+          <Link
+            href="/"
+            className={`box-border flex shrink-0 items-center justify-center ${
+              isHome
+                ? 'h-[5.375rem] w-[5.375rem] sm:h-[5.75rem] sm:w-[5.75rem]'
+                : 'h-[5.375rem] w-[5.375rem] rounded-xl bg-white/95 p-1 shadow-sm ring-1 ring-white/25 sm:h-[5.75rem] sm:w-[5.75rem] sm:p-1.5'
+            }`}
+            aria-label="Okuhle Homes — Home"
+          >
+            <SiteLogo
+              alt=""
+              priority
+              className="h-full w-full min-h-0 min-w-0"
+              sizes="(max-width: 640px) 86px, 92px"
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -194,9 +206,11 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile nav - inside same floating card */}
+        {/* Mobile nav */}
         {mobileOpen && (
-          <div className={`px-4 py-4 lg:hidden ${isHome ? 'border-t border-slate-200/80' : 'border-t border-slate-700/80'}`}>
+          <div
+            className={`px-4 py-4 sm:px-6 lg:hidden ${isHome ? 'border-t border-slate-200/80' : 'border-t border-slate-700/80'}`}
+          >
             <nav className="flex flex-col gap-0.5">
               <Link
                 href="/"

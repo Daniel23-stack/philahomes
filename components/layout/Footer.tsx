@@ -10,10 +10,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-lg font-bold tracking-tight">
-              Okuhle <span className="text-[var(--color-accent)]">Homes</span>
-            </h3>
-            <p className="mt-2 text-base leading-relaxed text-slate-200">{SITE.tagline}</p>
+            <p className="text-base leading-relaxed text-slate-200">{SITE.tagline}</p>
           </div>
           <div>
             <h4 className="text-base font-semibold">Contact</h4>

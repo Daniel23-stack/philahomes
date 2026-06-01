@@ -18,7 +18,7 @@ export function HeroBanner() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/40 to-slate-900/80" />
       </div>
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-4 pb-24 pt-32 text-left sm:px-6 lg:px-8 lg:justify-center lg:pb-32 lg:pt-24">
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-4 pb-24 pt-32 text-left sm:px-6 sm:pt-[7rem] lg:px-8 lg:justify-center lg:pb-32 lg:pt-[7rem]">
         <p className="opacity-0 animate-fade-in-up text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-highlight)] animate-delay-200">
           Home services & renovations
         </p>

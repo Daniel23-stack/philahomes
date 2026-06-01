@@ -1,10 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function NewsletterSection() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -15,6 +20,22 @@ export function NewsletterSection() {
       setStatus('success');
       setEmail('');
     }, 600);
+  }
+
+  if (!mounted) {
+    return (
+      <section className="border-t border-slate-200 bg-[var(--color-primary)] py-20 text-white sm:py-28">
+        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-[var(--color-highlight)]">
+            Stay in touch
+          </p>
+          <h2 className="mt-2 text-3xl font-light sm:text-4xl">Subscribe to our newsletter</h2>
+          <p className="mt-4 text-base leading-relaxed text-slate-200">
+            Get updates on offers, tips, and news from Okuhle Homes.
+          </p>
+        </div>
+      </section>
+    );
   }
 
   return (
