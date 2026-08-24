@@ -129,7 +129,6 @@ onMounted(scrollToHash);
         </div>
       </div>
 
-      <!-- Scroll hint -->
       <div class="absolute bottom-8 left-1/2 -translate-x-1/2 float-slow">
         <div class="flex flex-col items-center gap-2 text-white/50">
           <span class="text-xs uppercase tracking-widest">Scroll</span>

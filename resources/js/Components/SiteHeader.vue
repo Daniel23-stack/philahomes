@@ -5,7 +5,7 @@ import SiteLogo from '@/Components/SiteLogo.vue';
 
 const page = usePage();
 const user = computed(() => page.props.auth?.user);
-const isHome = computed(() => page.url === '/' || page.url.startsWith('/#'));
+const isHome = computed(() => page.component === 'Home');
 
 const mobileOpen = ref(false);
 const activeSection = ref('home');
@@ -60,7 +60,7 @@ onUnmounted(() => observer?.disconnect());
         <SiteLogo :href="isHome ? '#home' : '/'" size="default" />
 
         <!-- Desktop nav -->
-        <nav class="hidden items-center gap-1 lg:flex">
+        <nav class="ml-auto hidden items-center gap-1 lg:flex">
           <a
             v-for="item in navItems"
             :key="item.id"
