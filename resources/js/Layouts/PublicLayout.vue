@@ -4,6 +4,7 @@ import { computed, onMounted } from 'vue';
 import SiteHeader from '@/Components/SiteHeader.vue';
 import SiteFooter from '@/Components/SiteFooter.vue';
 import SupportChatbot from '@/Components/SupportChatbot.vue';
+import CookieConsent from '@/Components/CookieConsent.vue';
 
 const page = usePage();
 const showChat = computed(() => !page.url.startsWith('/admin'));
@@ -28,5 +29,6 @@ onMounted(scrollToHash);
     </main>
     <SiteFooter />
     <SupportChatbot v-if="showChat" />
+    <CookieConsent />
   </div>
 </template>
