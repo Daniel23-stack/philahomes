@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Okuhle Homes">
+  <rect width="64" height="64" rx="14" fill="#1e3a5f"/>
+  <rect x="11" y="24" width="7" height="13" rx="1" fill="#e85d04"/>
+  <path
+    d="M8 38 L22 20 L36 38"
+    fill="none"
+    stroke="#e85d04"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M24 38 L40 18 L56 38"
+    fill="none"
+    stroke="#e85d04"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

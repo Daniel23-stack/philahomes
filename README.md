@@ -1,35 +1,71 @@
 # Okuhle Homes
 
-Web application for Okuhle Homes — plumbing, electrical, renovations, interior design, bricklaying, general maintenance, welding, and solar PV in Johannesburg.
+Home services web application — **Laravel 11 + Vue 3 (Inertia.js)** + PostgreSQL.
+
+Plumbing, electrical, renovations, interior design, bricklaying, general maintenance, welding, and solar PV in Johannesburg.
 
 ## Stack
 
-- **Next.js 14** (App Router), TypeScript, Tailwind CSS
-- **Prisma** + **PostgreSQL** (required for local and production; use Neon/Supabase/etc. for hosted DB)
-- **NextAuth.js** (credentials; client + admin roles)
+| Layer | Technology |
+|-------|------------|
+| Backend | Laravel 11, Eloquent, PostgreSQL |
+| Frontend | Vue 3, Inertia.js, Tailwind CSS, Vite |
+| Auth | Session-based login (client + admin roles) |
 
-## Setup
+## First-time setup
 
-1. Install dependencies: `npm install`
-2. Copy `.env.example` to `.env` and set `DATABASE_URL` (Postgres), `NEXTAUTH_SECRET`, `NEXTAUTH_URL`
-3. Start Postgres locally (optional): `docker compose up -d` and use the `DATABASE_URL` from `.env.example` comments, or use [Neon](https://neon.tech) / another host
-4. Apply schema: `npx prisma migrate dev` (local) or `npx prisma migrate deploy` (CI/production)
-5. (Optional) Seed an admin user: `npm run seed`
+**Requires PHP 8.2+ and Composer**, or **Docker Desktop** (running).
 
-### Deploy on Vercel
+```powershell
+.\setup.ps1
+copy .env.example .env
+# Edit .env if needed (DB credentials match docker-compose.yml)
+docker compose up -d db
+php artisan migrate --seed
+```
 
-See **[docs/vercel-deploy.md](docs/vercel-deploy.md)** for Postgres setup, env vars, and troubleshooting.
+## Run locally
 
-## Run
+Terminal 1 — frontend assets:
 
-- Development: `npm run dev`
-- Production build: `npm run build` (runs migrations; requires valid `DATABASE_URL`)
-- Start (production): `npm start`
+```powershell
+npm install
+npm run dev
+```
 
-## Features
+Terminal 2 — Laravel server:
 
-- **Public**: Homepage (hero, highlights, services overview, testimonials), Services (list + per-service pages), About, Contact (map, form, social links), How it works, Portfolio, Blog, Request a quote (dynamic form, image upload)
-- **Client**: Register/Login, Dashboard (overview, catalog, messages, invoices), quote and job detail pages
-- **Admin**: Dashboard, Requests, Quotes, Jobs, Catalog, Messages, Invoices, Analytics, Logs, Blog
+```powershell
+php artisan serve
+```
 
-See `docs/Okuhle-Homes-Web-App-Plan.md` for the full plan.
+Open **http://localhost:8000**
+
+**Admin login (after seed):** `admin@philahomes.co.za` / `admin123`
+
+## API endpoints
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| POST | `/api/contact` | Save contact message + optional email |
+| POST | `/api/newsletter` | Newsletter subscribe |
+| POST | `/api/requests` | Quote / service request |
+| POST | `/api/chat` | AI support chat (needs `OPENAI_API_KEY`) |
+
+## Project structure
+
+```
+app/                  Controllers, Models, Services
+resources/js/         Vue pages & components (Inertia)
+routes/web.php        Public + auth + dashboard + admin
+routes/api.php        JSON APIs
+database/migrations/  PostgreSQL schema
+config/site.php       Business contact details
+config/services_catalog.php  Static services list
+```
+
+## Notes
+
+- This project **no longer uses Next.js**. The previous React/Prisma stack has been removed.
+- Use a **fresh PostgreSQL database** for Laravel (snake_case columns, bigint IDs).
+- See `docs/Okuhle-Homes-Web-App-Plan.md` for the original product plan.
